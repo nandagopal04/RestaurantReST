@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.seaside.entity.Customer;
 import com.seaside.entity.Dish;
 import com.seaside.exception.InvalidDishIdException;
 import com.seaside.repository.DishRepository;
@@ -61,5 +62,9 @@ public class DishService {
 		Dish dish = findDishById(id);
 		dishRepository.delete(dish);
 		return dish;
+	}
+	// Find all Dishes by customer
+	public List<Dish> findAllDishesByCustomer(Customer customer) {
+		return dishRepository.findAllDishesByCustomer(customer);
 	}
 }
